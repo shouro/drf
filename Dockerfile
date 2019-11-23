@@ -1,15 +1,17 @@
 FROM python:3.6
-RUN apt-get update && apt-get upgrade -y && apt-get autoremove && apt-get autoclean
+
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 
 # Project Files and Settings
-ARG PROJECT=myproject
-ARG PROJECT_DIR=/var/www/${PROJECT}
+WORKDIR /code
 
-RUN mkdir -p $PROJECT_DIR
-WORKDIR $PROJECT_DIR
-COPY Pipfile Pipfile.lock ./
-RUN pip install -U pipenv
-RUN pipenv install --system
+# Copy project
+COPY . /code/
+
+# Install dependencies
+RUN pip install pipenv && pipenv install --system
 
 # Server
 EXPOSE 8000

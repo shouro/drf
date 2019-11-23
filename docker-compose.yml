@@ -5,10 +5,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: docker_drf
+    image: drf_api
     stdin_open: true
     tty: true
-    volumes:
-      - .:/var/www/myproject
+
     ports:
       - "8000:8000"

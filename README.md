@@ -7,7 +7,6 @@ Run these commands:
 ```
 git clone https://github.com/shouro/drf.git
 pipenv install
-python manage.py migratte
 pytohn manage.py runserver
 ```
 Test the api:
