@@ -3,6 +3,7 @@
 ## Startup of the service:
 
 Assuming you have python and pipenv already setup in your box.
+
 Run these commands:
 ```
 git clone https://github.com/shouro/drf.git
@@ -25,6 +26,7 @@ docker-compose up
 ## Use Cases:
 
 GET /apis/v1/products/
+
 Returns a list of all product:
 ```
 [
@@ -50,6 +52,7 @@ Returns a list of all product:
 ```
 
 POST /apis/v1/products/
+
 Input a dict or list of dict
 ```
 {
@@ -77,11 +80,14 @@ OR
 ```
 Returns a newly created entry or list
 
-GET apis/v1/products/<id>/
+GET apis/v1/products/{id}/
+
 Detail of an entry
 
-PUT apis/v1/products/<id>/
+PUT apis/v1/products/{id}/
+
 Update an entry
+
 Input:
 ```
 {
@@ -92,13 +98,16 @@ Input:
 }
 ```
 
-DELETE apis/v1/products/<id>/
+DELETE apis/v1/products/{id}/
+
 Delete an entry
 
-GET apis/v1/products/<id>/attributes/
+GET apis/v1/products/{id}/attributes/
+
 Returns products attribuates list
 
-POST apis/v1/products/<id>/attributes/
+POST apis/v1/products/{id}/attributes/
+
 create products new attribuate
 ```
 {
@@ -107,7 +116,8 @@ create products new attribuate
 }
 ```
 
-PUT apis/v1/products/<id>/attributes/
+PUT apis/v1/products/{id}/attributes/
+
 update a attribute
 ```
 {
@@ -116,13 +126,16 @@ update a attribute
     "value": "pink"
 }
 ```
-DELETE apis/v1/products/<id>/attributes/?id=attr_id
+DELETE apis/v1/products/{id}/attributes/?id=attr_id
+
 delete attribute by attr_id
 
-GET apis/v1/products/<id>/prices/
+GET apis/v1/products/{id}/prices/
+
 Returns products price list
 
-POST apis/v1/products/<id>/prices/
+POST apis/v1/products/{id}/prices/
+
 create products new price
 ```
 {
@@ -131,7 +144,8 @@ create products new price
     "end_date": "yyyy-mm-dd"
 }
 ```
-PUT apis/v1/products/<id>/prices/
+PUT apis/v1/products/{id}/prices/
+
 update a price and its date range
 ```
 {
@@ -141,5 +155,6 @@ update a price and its date range
     "end_date": "yyyy-mm-dd"
 }
 ```
-DELETE apis/v1/products/<id>/prices/?id=price_id
+DELETE apis/v1/products/{id}/prices/?id=price_id
+
 delete attribute by price_id
