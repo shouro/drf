@@ -6,7 +6,7 @@ class ProductAttribute(models.Model):
     value = models.CharField(max_length=40)
 
     def __str__(self):
-        return self.property
+        return f'{self.property}_{self.value}'
 
 class ProductPrice(models.Model):
     price = models.DecimalField(decimal_places=2, max_digits=10)
@@ -14,7 +14,7 @@ class ProductPrice(models.Model):
     end_date = models.DateField()
 
     def __str__(self):
-        return str(self.price)
+        return f'{str(self.price)}_{self.begin_date}_{self.end_date}'
 
 # Create your models here.
 class Product(models.Model):

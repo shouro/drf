@@ -54,6 +54,8 @@ class ProductViewSet(viewsets.ModelViewSet):
 
         if request.method == "DELETE":
             qid = request.query_params.get('id', None)
+            if not qid.isdigit():
+                return Response({'error': 'wrong id: {}'.format(qid)}, status=status.HTTP_400_BAD_REQUEST)
             pa = models.ProductAttribute.objects.filter(pk=qid)
             if len(pa):
                 pa.delete()
@@ -101,6 +103,8 @@ class ProductViewSet(viewsets.ModelViewSet):
 
         if request.method == "DELETE":
             qid = request.query_params.get('id', None)
+            if not qid.isdigit():
+                return Response({'error': 'wrong id: {}'.format(qid)}, status=status.HTTP_400_BAD_REQUEST)
             pp = models.ProductPrice.objects.filter(pk=qid)
             if len(pp):
                 pp.delete()
